@@ -5,9 +5,9 @@
        
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><RouterLink  to="/" class="text-white nav-link px-2  ">Home</RouterLink></li>
+          <li><RouterLink  to="/" class="text-white nav-link px-2  ">首頁</RouterLink></li>
           <li><RouterLink  to="/about" class="text-white nav-link px-2 ">About</RouterLink></li>
-          <li><RouterLink  to="/login" class="text-white nav-link px-2 ">login</RouterLink></li>
+         
           <!-- <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
           <li><a href="#" class="nav-link px-2 text-white">Features</a></li> -->
        
@@ -24,7 +24,7 @@
             Login
           </button>
           <button
-           @click="$router.push('/Sign')"          
+           @click="$router.push('/sign')"          
            type="button" class="btn btn-warning">Sign-up</button>
         </div>
       </div>
