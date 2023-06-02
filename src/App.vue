@@ -1,36 +1,58 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import { inject } from 'vue'
+<template>  
+  <header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+       
 
-</script>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><RouterLink  to="/" class="text-white nav-link px-2  ">Home</RouterLink></li>
+          <li><RouterLink  to="/about" class="text-white nav-link px-2 ">About</RouterLink></li>
+          <li><RouterLink  to="/login" class="text-white nav-link px-2 ">login</RouterLink></li>
+          <!-- <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Features</a></li> -->
+       
+        </ul>
 
-<template>
-  <div class="wrapper">
-    <header>
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <br>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </header>
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+        </form>
 
-  </div>
-  <!--  -->
-  <button type="button" class="btn btn-primary">Primary</button>
-  <button type="button" class="btn btn-secondary">Secondary</button>
-  <button type="button" class="btn btn-success">Success</button>
-  <button type="button" class="btn btn-danger">Danger</button>
-  <button type="button" class="btn btn-warning">Warning</button>
-  <button type="button" class="btn btn-info">Info</button>
-  <button type="button" class="btn btn-light">Light</button>
-  <button type="button" class="btn btn-dark">Dark</button>
-
-  <button type="button" class="btn btn-link">Link</button>
+        <div class="text-end">
+          <button 
+            @click="$router.push('/login')"
+            type="button" class="btn btn-outline-light me-2">
+            Login
+          </button>
+          <button
+           @click="$router.push('/Sign')"          
+           type="button" class="btn btn-warning">Sign-up</button>
+        </div>
+      </div>
+    </div>
+  </header>
   <!--  -->
 
   <RouterView />
 </template>
 
-<style lang="scss" >
-  
+<script >
+import { RouterLink, RouterView } from 'vue-router'
+import { inject } from 'vue'
+
+</script>
+
+<style lang="scss" >/*
+  .container{
+    // height: 50vh;
+    background-color: rgb(0, 255, 195);
+  }
+
+
+  .row{
+    background-color: antiquewhite;
+
+    
+    
+  }
+*/
 </style>
