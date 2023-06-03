@@ -21,9 +21,14 @@ const routes= [
     component:()=>import('../views/LoginView.vue')
   },
   {
-    path:'/Sign',
-    name:'Sign',
+    path:'/sign',
+    name:'sign',
     component:()=>import('../views/SignUpView.vue')
+  },
+  {
+    path:'/user',
+    name:'user',
+    component:()=>import('../views/UserView.vue')
   },
   //404
   {
@@ -34,7 +39,7 @@ const routes= [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  linkActiveClass:'text-secondary',
+  linkActiveClass:'active',
   routes,
   
 })
