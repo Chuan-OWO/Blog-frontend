@@ -1,5 +1,5 @@
 <template>
-  <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+<div class="container col-xl-10 col-xxl-8 px-4 py-5">
 
 
     <div class="row align-items-center g-lg-5 py-5">
@@ -30,8 +30,11 @@
                         placeholder="name@example.com"
 
                         v-model="user.email"
+                        
                     >
                     <label for="floatingInput">Email address</label>
+                    
+                    
                 </div>
                 <div class="form-floating mb-3">
                     <input 
@@ -42,6 +45,8 @@
 
                         v-model="user.password"
                     >
+
+                    
                     <label for="floatingPassword">密碼</label>
                 </div>
                 <!-- <div class="checkbox mb-3">
@@ -62,12 +67,10 @@
         </div>
 
     </div>
-  </div>
+</div>
 </template>
 
 <script>
-import axios from 'axios';
-
 export default{
     data() {
         return {
@@ -77,28 +80,38 @@ export default{
             }
         }
     },
+    computed:{
+        isValidEmail(){
+            return this.email.length >= 8;
+        },
+        isValidPassword() {
+            return this.password.length >= 8;
+        },
+    },
     methods:{
-        async login(){
-            // console.log('login');
-            const api = `${import.meta.env.VITE_APP_API}${import.meta.env.VITE_LOGIN}`
-            // console.log(api);
+        //submit
+        async login(){    
             
-            try {
+            const api = `${import.meta.env.VITE_APP_API}${import.meta.env.VITE_LOGIN}`
+        
                 const res = await this.axios.post(api,this.user)
-                console.log(res);
-                
-                const token = res.data.token;
+                console.log(res);          
+                    
+            if (res.data.code === '0000') {
 
+                const token = res.data.token;
                 localStorage.setItem('token', token);
-                alert('登入成功')
+                    // alert('登入成功')
                 this.$router.push('/dashboard');
 
-            } catch (error) {
-                console.error(error);
-                alert(error)
+            } else {
+                alert(res.data.msg)
             }
+
         }
     }
 }
 </script>
+
+
 
